@@ -111,208 +111,331 @@
       <div class="section-heading compact">
         <p class="eyebrow">Chapter Guide</p>
         <h2 id="chapters-title">机器学习章节关键知识点分析与例题</h2>
-        <p>本栏目按照课程主要章节整理，帮助学生把“概念、公式、算法流程、计算题、编程上机”串起来。每章都补充重点拆解、考试抓手、常见误区和配套例题。</p>
+        <p>本栏目按二级目录组织：先列章节入口，再在每章下展开背景、知识点、理论和 5 道例题。学生可按章节复习，也可直接跳到薄弱模块。</p>
       </div>
 
-      <div class="chapter-grid">
-        <article class="chapter-card">
-          <div class="chapter-head">
+      <nav class="chapter-toc" aria-label="章节二级目录">
+        <a href="#chapter-1"><span>第 1 章</span>概述与任务类型</a>
+        <a href="#chapter-2"><span>第 2 章</span>数据预处理</a>
+        <a href="#chapter-3"><span>第 3 章</span>KNN 与距离</a>
+        <a href="#chapter-4"><span>第 4 章</span>线性模型</a>
+        <a href="#chapter-5"><span>第 5 章</span>决策树与集成</a>
+        <a href="#chapter-6"><span>第 6 章</span>模型评估</a>
+        <a href="#chapter-7"><span>第 7 章</span>K-Means 与 PCA</a>
+        <a href="#chapter-8"><span>第 8 章</span>神经网络与 CNN</a>
+      </nav>
+
+      <div class="chapter-directory">
+        <article id="chapter-1" class="chapter-module">
+          <header class="chapter-module-head">
             <span>第 1 章</span>
             <h3>机器学习概述与任务类型</h3>
+            <p>本章解决“什么是机器学习、机器学习能解决什么问题、如何根据题意判断任务类型”三个基础问题。</p>
+          </header>
+          <div class="chapter-subgrid">
+            <section class="chapter-subsection">
+              <h4>背景</h4>
+              <p>传统程序依赖人工写规则，而机器学习依赖数据。只要问题中存在大量历史样本，并且规律难以用固定规则完整写出，就适合考虑机器学习方法。例如设备故障预测、用户分群、垃圾邮件识别、图像辅助诊断等。</p>
+            </section>
+            <section class="chapter-subsection">
+              <h4>知识点</h4>
+              <ul>
+                <li>监督学习：训练数据有输入和标签，学习从输入到标签的映射。</li>
+                <li>分类：输出是离散类别，如是否故障、是否患病、邮件是否垃圾。</li>
+                <li>回归：输出是连续数值，如房价、销量、温度、风险分数。</li>
+                <li>无监督学习：数据没有标签，目标是发现结构，如聚类、降维。</li>
+                <li>强化学习：智能体通过动作与环境交互，根据奖励学习策略。</li>
+              </ul>
+            </section>
+            <section class="chapter-subsection">
+              <h4>理论</h4>
+              <p>机器学习可粗略理解为从数据集 D 中学习一个模型 f，使其对未见样本也有较好预测或解释能力。监督学习通常学习 <code>y = f(x)</code>；无监督学习更关注样本之间的结构，如相似性、簇、低维表示。</p>
+              <div class="formula-note">判断任务类型：先看有没有标签，再看输出是类别、数值，还是结构。</div>
+            </section>
+            <section class="chapter-subsection examples-panel">
+              <h4>5 道例题</h4>
+              <ol class="example-list">
+                <li><strong>根据传感器数据预测机器是否故障，属于什么任务？</strong><p>监督学习中的分类任务，因为输出是“故障/正常”。</p></li>
+                <li><strong>根据房屋面积、楼层、位置预测房价，属于什么任务？</strong><p>监督学习中的回归任务，因为房价是连续数值。</p></li>
+                <li><strong>把没有标签的客户按消费行为分成若干群体，属于什么任务？</strong><p>无监督学习中的聚类任务。</p></li>
+                <li><strong>让机器人通过奖励学习走迷宫，属于什么学习？</strong><p>强化学习，因为它通过动作、环境反馈和奖励学习策略。</p></li>
+                <li><strong>“写很多 If-Else 规则”是否就是机器学习？</strong><p>不是。机器学习强调从数据中自动学习规律，而不是完全由人工硬编码规则。</p></li>
+              </ol>
+            </section>
           </div>
-          <p class="chapter-focus">关键知识点分析：区分监督学习、无监督学习和强化学习；理解分类与回归的区别；能从业务描述中判断任务类型。</p>
-          <ul>
-            <li>有标签且预测离散类别：分类。</li>
-            <li>有标签且预测连续数值：回归。</li>
-            <li>无标签并寻找群体结构：聚类或降维。</li>
-          </ul>
-          <div class="knowledge-block">
-            <h4>重点拆解</h4>
-            <p>机器学习不是“把规则写死”，而是让模型从历史数据中学习输入与输出、样本与结构、状态与反馈之间的规律。判断任务类型时，先看有没有标签，再看输出是什么形式。</p>
-            <h4>考试抓手</h4>
-            <p>题目常把任务藏在真实场景里，例如故障预测、疾病筛查、用户分群、价格预测。看到“是否、类别、风险等级”多半是分类；看到“价格、销量、温度”等连续数值多半是回归。</p>
-            <div class="formula-note">判断口诀：先问“有没有标签”，再问“输出是类别还是数值”。</div>
-          </div>
-          <details class="chapter-example">
-            <summary>例题与参考答案</summary>
-            <p>例题：根据学生历史作业、出勤和测验成绩，预测其是否存在挂科风险，属于什么任务？</p>
-            <p>参考答案：监督学习中的分类任务，因为训练数据有历史标签，输出是“有风险/无风险”的离散类别。</p>
-          </details>
         </article>
 
-        <article class="chapter-card">
-          <div class="chapter-head">
+        <article id="chapter-2" class="chapter-module">
+          <header class="chapter-module-head">
             <span>第 2 章</span>
             <h3>数据预处理与数据划分</h3>
+            <p>本章关注模型训练前的准备工作，包括缺失值处理、特征缩放、数据集划分和数据泄漏防范。</p>
+          </header>
+          <div class="chapter-subgrid">
+            <section class="chapter-subsection">
+              <h4>背景</h4>
+              <p>真实数据常有缺失、异常、单位不统一、类别变量和重复记录。预处理并不是附属步骤，而是决定模型是否可靠的基础。对 KNN、K-Means、逻辑回归等算法来说，数据尺度和划分方式会明显影响结果。</p>
+            </section>
+            <section class="chapter-subsection">
+              <h4>知识点</h4>
+              <ul>
+                <li>缺失值处理：删除、均值/中位数填充、模型填充等。</li>
+                <li>特征缩放：标准化、归一化，减少量纲影响。</li>
+                <li>类别变量：可使用独热编码等方式转为数值特征。</li>
+                <li>数据划分：训练集用于拟合，验证集用于调参，测试集用于最终评估。</li>
+                <li>数据泄漏：测试集或未来信息提前进入训练流程，会导致结果虚高。</li>
+              </ul>
+            </section>
+            <section class="chapter-subsection">
+              <h4>理论</h4>
+              <p>标准化常用公式为 <code>z = (x - mean) / std</code>，归一化常用公式为 <code>x' = (x - min) / (max - min)</code>。实际建模中，应只在训练集上计算 mean、std、min、max，再应用到验证集和测试集。</p>
+              <div class="mistake-note">常见误区：先用全体数据做标准化，再划分训练集和测试集。这会把测试集统计信息泄漏给模型。</div>
+            </section>
+            <section class="chapter-subsection examples-panel">
+              <h4>5 道例题</h4>
+              <ol class="example-list">
+                <li><strong>KNN 中年龄范围 18-70，收入范围 0-100000，为什么要标准化？</strong><p>否则收入在距离计算中占主导，年龄影响被压低。</p></li>
+                <li><strong>测试集能否参与调参？</strong><p>不能。调参应使用验证集，测试集用于最终评估。</p></li>
+                <li><strong>训练集准确率 96%，测试集准确率 95%，是否一定过拟合？</strong><p>不一定。二者接近，通常泛化差距较小。</p></li>
+                <li><strong>某特征缺失率为 2%，可否直接删除缺失样本？</strong><p>可以考虑删除，但需确认删除不会引入明显偏差。</p></li>
+                <li><strong>标准化后特征均值通常接近多少？</strong><p>接近 0，标准差接近 1。</p></li>
+              </ol>
+            </section>
           </div>
-          <p class="chapter-focus">关键知识点分析：掌握缺失值处理、标准化/归一化、训练集/验证集/测试集划分；理解数据泄漏为什么会导致虚高结果。</p>
-          <ul>
-            <li>距离类算法常需要标准化。</li>
-            <li>验证集用于调参，测试集用于最终评估。</li>
-            <li>不能用测试集统计量参与训练预处理。</li>
-          </ul>
-          <div class="knowledge-block">
-            <h4>重点拆解</h4>
-            <p>数据预处理决定模型能否“公平地看待”不同特征。标准化通常把特征变成均值约为 0、方差约为 1 的形式；归一化常把特征压缩到固定范围。二者都服务于减少量纲差异。</p>
-            <h4>流程要求</h4>
-            <p>更严谨的流程是先划分训练集、验证集和测试集，再只用训练集拟合标准化器，最后把同一个变换应用到验证集和测试集。这样才能避免测试集信息提前泄漏。</p>
-            <div class="mistake-note">常见误区：先对全体数据做标准化，再划分数据集。这会让测试集统计信息进入训练过程。</div>
-          </div>
-          <details class="chapter-example">
-            <summary>例题与参考答案</summary>
-            <p>例题：KNN 中同时使用“年龄”和“年收入”两个特征，为什么通常要做标准化？</p>
-            <p>参考答案：年收入数值范围通常远大于年龄，若不标准化，距离计算会被收入主导，导致年龄信息被弱化。</p>
-          </details>
         </article>
 
-        <article class="chapter-card">
-          <div class="chapter-head">
+        <article id="chapter-3" class="chapter-module">
+          <header class="chapter-module-head">
             <span>第 3 章</span>
             <h3>KNN 与距离度量</h3>
+            <p>KNN 是理解距离、相似性、局部决策边界和预测复杂度的好入口，也是考试中常见的基础计算题来源。</p>
+          </header>
+          <div class="chapter-subgrid">
+            <section class="chapter-subsection">
+              <h4>背景</h4>
+              <p>KNN 的思想非常直观：一个样本的类别往往与它附近样本的类别相似。它训练阶段几乎不建立显式模型，而是在预测时查找最近邻，因此也被称为懒惰学习方法。</p>
+            </section>
+            <section class="chapter-subsection">
+              <h4>知识点</h4>
+              <ul>
+                <li>欧氏距离：二维点距离常用 <code>sqrt((x1-x2)^2+(y1-y2)^2)</code>。</li>
+                <li>K 值：K 小容易受噪声影响，K 大可能过度平滑。</li>
+                <li>分类决策：最近 K 个邻居多数表决。</li>
+                <li>回归决策：最近 K 个邻居取均值或加权均值。</li>
+                <li>缺点：预测阶段需要和大量训练样本算距离，速度较慢。</li>
+              </ul>
+            </section>
+            <section class="chapter-subsection">
+              <h4>理论</h4>
+              <p>KNN 没有复杂训练过程，但高度依赖距离度量和特征尺度。对高维数据，距离可能变得不稳定，且存储和计算成本较高。常见改进包括标准化、选择合适 K、使用 KD-Tree 或近似最近邻方法。</p>
+              <div class="formula-note">解 KNN 计算题：算距离 → 排序 → 取最近 K 个 → 多数表决。</div>
+            </section>
+            <section class="chapter-subsection examples-panel">
+              <h4>5 道例题</h4>
+              <ol class="example-list">
+                <li><strong>A(0,0)、B(2,0) 属 0 类，C(4,0) 属 1 类，X(1,0)，K=1 类别？</strong><p>到 A、B 距离均为 1，若题目未给平票规则，应说明存在平票，需要约定规则。</p></li>
+                <li><strong>X(2,2) 到 A(1,2) 的欧氏距离是多少？</strong><p><code>sqrt((2-1)^2+(2-2)^2)=1</code>。</p></li>
+                <li><strong>K 越小是否越稳定？</strong><p>不是。K 小更容易受噪声点影响。</p></li>
+                <li><strong>KNN 训练慢还是预测慢？</strong><p>通常训练很轻，预测较慢。</p></li>
+                <li><strong>K=3 时最近邻类别为 0、1、1，预测类别？</strong><p>类别 1，因为多数表决中类别 1 有两票。</p></li>
+              </ol>
+            </section>
           </div>
-          <p class="chapter-focus">关键知识点分析：理解 KNN 的“懒惰学习”特点、欧氏距离计算、多数表决机制，以及 K 值对噪声和边界平滑程度的影响。</p>
-          <ul>
-            <li>K 小：边界更灵活，但更容易受噪声影响。</li>
-            <li>K 大：结果更平滑，但可能欠拟合。</li>
-            <li>预测阶段需要与训练样本计算距离，数据大时较慢。</li>
-          </ul>
-          <div class="knowledge-block">
-            <h4>算法流程</h4>
-            <p>KNN 训练阶段几乎只是保存样本；预测时计算新样本到所有训练样本的距离，选出最近的 K 个邻居，分类任务做多数表决，回归任务做均值或加权均值。</p>
-            <h4>计算重点</h4>
-            <p>二维欧氏距离常考：d((x1,y1),(x2,y2)) = √((x1-x2)^2+(y1-y2)^2)。考试中要先算距离，再排序，再看最近 K 个样本的类别投票。</p>
-            <div class="mistake-note">常见误区：只找到最近一个点就结束。题目若给 K=3 或 K=5，必须按 K 个邻居投票。</div>
-          </div>
-          <details class="chapter-example">
-            <summary>例题与参考答案</summary>
-            <p>例题：已知 A(1,1)、B(2,1) 为类别 0，C(4,4)、D(5,4) 为类别 1。新样本 X(2,2)，当 K=3 时类别是什么？</p>
-            <p>参考答案：距离分别为 1、1、√8、√13，最近三点为 A、B、C，其中类别 0 两票，因此预测为类别 0。</p>
-          </details>
         </article>
 
-        <article class="chapter-card">
-          <div class="chapter-head">
+        <article id="chapter-4" class="chapter-module">
+          <header class="chapter-module-head">
             <span>第 4 章</span>
             <h3>线性模型与逻辑回归</h3>
+            <p>本章帮助学生理解线性组合、概率输出、分类阈值和梯度下降的基本思想。</p>
+          </header>
+          <div class="chapter-subgrid">
+            <section class="chapter-subsection">
+              <h4>背景</h4>
+              <p>线性模型是许多复杂模型的基础。线性回归用于连续值预测，逻辑回归虽然名字中有“回归”，但常用于二分类。它们简单、可解释，是机器学习入门阶段必须掌握的模型。</p>
+            </section>
+            <section class="chapter-subsection">
+              <h4>知识点</h4>
+              <ul>
+                <li>线性组合：<code>z = w^T x + b</code>。</li>
+                <li>线性回归：直接预测连续值。</li>
+                <li>逻辑回归：用 Sigmoid 把 z 映射为概率。</li>
+                <li>阈值分类：概率大于阈值判为正类。</li>
+                <li>梯度下降：沿损失函数下降最快方向迭代更新参数。</li>
+              </ul>
+            </section>
+            <section class="chapter-subsection">
+              <h4>理论</h4>
+              <p>Sigmoid 函数为 <code>sigma(z)=1/(1+exp(-z))</code>，输出范围在 0 到 1 之间，可解释为正类概率。梯度下降更新一般写作 <code>theta = theta - eta * gradient</code>，其中 eta 是学习率。</p>
+              <div class="mistake-note">常见误区：认为逻辑回归只能处理线性可分数据。实际中它是线性决策边界的基础模型，可配合特征工程增强表达能力。</div>
+            </section>
+            <section class="chapter-subsection examples-panel">
+              <h4>5 道例题</h4>
+              <ol class="example-list">
+                <li><strong>逻辑回归输出 0.73，阈值 0.5，预测类别？</strong><p>正类。</p></li>
+                <li><strong>Sigmoid 输出范围是多少？</strong><p>0 到 1。</p></li>
+                <li><strong>预测明日温度更适合分类还是回归？</strong><p>回归，因为温度是连续数值。</p></li>
+                <li><strong>医疗筛查中想减少漏诊，应提高还是降低正类判定阈值？</strong><p>通常降低阈值以提高 Recall，但可能增加误报。</p></li>
+                <li><strong>梯度下降的目标是什么？</strong><p>寻找使损失函数较小的模型参数。</p></li>
+              </ol>
+            </section>
           </div>
-          <p class="chapter-focus">关键知识点分析：线性回归预测连续值，逻辑回归用于分类概率建模；理解 Sigmoid 输出范围和阈值分类思想。</p>
-          <ul>
-            <li>线性组合：z = w^T x + b。</li>
-            <li>Sigmoid 将 z 映射到 [0, 1]。</li>
-            <li>常用 0.5 作为二分类阈值，也可按业务调整。</li>
-          </ul>
-          <div class="knowledge-block">
-            <h4>重点拆解</h4>
-            <p>线性回归直接输出连续值，逻辑回归则先得到线性得分 z，再通过 Sigmoid 函数把得分压到 0 到 1 之间，因此更适合表达“属于正类的概率”。</p>
-            <h4>公式抓手</h4>
-            <p>Sigmoid 函数为 σ(z)=1/(1+e^{-z})。当 z 越大，σ(z) 越接近 1；当 z 越小，σ(z) 越接近 0。分类阈值不一定永远是 0.5，医疗筛查等任务可根据漏诊代价调整。</p>
-            <div class="formula-note">考试常问：逻辑回归虽然名字有“回归”，但常用于分类。</div>
-          </div>
-          <details class="chapter-example">
-            <summary>例题与参考答案</summary>
-            <p>例题：某逻辑回归模型输出概率 0.82，阈值为 0.5，应判为正类还是负类？</p>
-            <p>参考答案：判为正类，因为 0.82 大于阈值 0.5。</p>
-          </details>
         </article>
 
-        <article class="chapter-card">
-          <div class="chapter-head">
+        <article id="chapter-5" class="chapter-module">
+          <header class="chapter-module-head">
             <span>第 5 章</span>
             <h3>决策树、过拟合与集成学习</h3>
+            <p>本章把树模型、泛化能力和随机森林联系起来，重点理解“训练好不等于测试好”。</p>
+          </header>
+          <div class="chapter-subgrid">
+            <section class="chapter-subsection">
+              <h4>背景</h4>
+              <p>决策树通过一系列问题把样本划分到叶节点，形式接近人类判断流程，因此可解释性较强。但树越深越容易记住训练集细节，导致测试集性能下降。</p>
+            </section>
+            <section class="chapter-subsection">
+              <h4>知识点</h4>
+              <ul>
+                <li>节点划分目标：让子节点更纯。</li>
+                <li>划分指标：信息增益、增益率、基尼指数等。</li>
+                <li>过拟合表现：训练集分数高，测试集分数明显低。</li>
+                <li>缓解方式：剪枝、限制深度、正则化、增加数据。</li>
+                <li>随机森林：多棵树投票或平均，降低单棵树波动。</li>
+              </ul>
+            </section>
+            <section class="chapter-subsection">
+              <h4>理论</h4>
+              <p>决策树每次划分都在降低不纯度。随机森林进一步引入样本随机抽样和特征随机选择，使树之间有差异，最后通过集成降低方差。</p>
+              <div class="formula-note">随机森林核心：Bootstrap 样本 + 随机特征 + 多树投票。</div>
+            </section>
+            <section class="chapter-subsection examples-panel">
+              <h4>5 道例题</h4>
+              <ol class="example-list">
+                <li><strong>训练准确率 100%，测试准确率 60%，是什么现象？</strong><p>过拟合。</p></li>
+                <li><strong>继续增加树深能否缓解过拟合？</strong><p>通常不能，可能更严重。</p></li>
+                <li><strong>随机森林属于什么学习思想？</strong><p>集成学习。</p></li>
+                <li><strong>决策树划分节点通常为了什么？</strong><p>降低不纯度，让子节点样本更纯。</p></li>
+                <li><strong>列举两种缓解过拟合方法。</strong><p>限制树深、剪枝、增加数据、正则化、提前停止等。</p></li>
+              </ol>
+            </section>
           </div>
-          <p class="chapter-focus">关键知识点分析：决策树通过降低不纯度进行划分；过深的树容易记住训练噪声；随机森林通过多树投票提升稳定性。</p>
-          <ul>
-            <li>节点划分常看信息增益、基尼指数等指标。</li>
-            <li>训练集高分、测试集低分常提示过拟合。</li>
-            <li>随机森林属于集成学习，能降低单棵树波动。</li>
-          </ul>
-          <div class="knowledge-block">
-            <h4>重点拆解</h4>
-            <p>决策树每次选择一个特征和切分方式，使切分后的样本更“纯”。树越深，越能贴合训练集细节，但也越容易把噪声当成规律。</p>
-            <h4>泛化理解</h4>
-            <p>过拟合的典型表现是训练集很好、测试集明显变差。缓解方式包括限制最大深度、设置最小叶子样本数、剪枝、增加数据、正则化或使用随机森林。</p>
-            <div class="formula-note">随机森林 = 多棵树 + 样本/特征随机性 + 投票或平均。</div>
-          </div>
-          <details class="chapter-example">
-            <summary>例题与参考答案</summary>
-            <p>例题：一棵树训练准确率 100%，测试准确率 62%，继续增加树深是否合适？</p>
-            <p>参考答案：不合适。该现象更可能是过拟合，应考虑剪枝、限制最大深度、增加数据或使用随机森林。</p>
-          </details>
         </article>
 
-        <article class="chapter-card">
-          <div class="chapter-head">
+        <article id="chapter-6" class="chapter-module">
+          <header class="chapter-module-head">
             <span>第 6 章</span>
             <h3>模型评估指标</h3>
+            <p>本章重点是混淆矩阵与分类指标的计算和解释，尤其要理解不同业务场景下指标选择不同。</p>
+          </header>
+          <div class="chapter-subgrid">
+            <section class="chapter-subsection">
+              <h4>背景</h4>
+              <p>模型不能只看“准确率高不高”。在疾病筛查、欺诈检测、垃圾邮件过滤等场景中，不同错误类型的代价不同，因此需要混淆矩阵、Precision、Recall 和 F1 共同分析。</p>
+            </section>
+            <section class="chapter-subsection">
+              <h4>知识点</h4>
+              <ul>
+                <li>TP：真实为正，预测为正。</li>
+                <li>FP：真实为负，预测为正。</li>
+                <li>FN：真实为正，预测为负。</li>
+                <li>TN：真实为负，预测为负。</li>
+                <li>Accuracy、Precision、Recall、F1 是常考计算指标。</li>
+              </ul>
+            </section>
+            <section class="chapter-subsection">
+              <h4>理论</h4>
+              <p><code>Accuracy=(TP+TN)/(TP+FP+FN+TN)</code>，<code>Precision=TP/(TP+FP)</code>，<code>Recall=TP/(TP+FN)</code>，<code>F1=2PR/(P+R)</code>。类别不平衡时，Accuracy 容易误导，应结合 Recall、Precision 和混淆矩阵。</p>
+              <div class="mistake-note">常见误区：把 Precision 和 Recall 混淆。Precision 看预测为正的结果是否可靠，Recall 看真实正类是否被找全。</div>
+            </section>
+            <section class="chapter-subsection examples-panel">
+              <h4>5 道例题</h4>
+              <ol class="example-list">
+                <li><strong>TP=40，FP=10，FN=20，TN=130，Accuracy 是多少？</strong><p><code>(40+130)/200=0.85</code>。</p></li>
+                <li><strong>同上，Precision 是多少？</strong><p><code>40/(40+10)=0.80</code>。</p></li>
+                <li><strong>同上，Recall 是多少？</strong><p><code>40/(40+20)=0.667</code>。</p></li>
+                <li><strong>疾病筛查更关注 Precision 还是 Recall？</strong><p>通常更关注 Recall，因为漏诊代价高。</p></li>
+                <li><strong>类别极不平衡时哪个指标容易误导？</strong><p>Accuracy。</p></li>
+              </ol>
+            </section>
           </div>
-          <p class="chapter-focus">关键知识点分析：掌握混淆矩阵 TP、FP、FN、TN；能计算 Accuracy、Precision、Recall、F1；理解类别不平衡时 Accuracy 的局限。</p>
-          <ul>
-            <li>Precision = TP / (TP + FP)。</li>
-            <li>Recall = TP / (TP + FN)。</li>
-            <li>F1 是 Precision 和 Recall 的调和平均。</li>
-          </ul>
-          <div class="knowledge-block">
-            <h4>指标含义</h4>
-            <p>Accuracy 看整体预测对了多少；Precision 看“预测为正的样本里有多少是真的正”；Recall 看“所有真实正样本里有多少被找出来”。F1 用来平衡 Precision 和 Recall。</p>
-            <h4>场景判断</h4>
-            <p>垃圾邮件过滤若误删正常邮件代价高，应重视 Precision；疾病筛查若漏诊代价高，应重视 Recall。类别极不平衡时，Accuracy 容易虚高，需要结合混淆矩阵分析。</p>
-            <div class="formula-note">F1 = 2PR / (P + R)，其中 P 为 Precision，R 为 Recall。</div>
-          </div>
-          <details class="chapter-example">
-            <summary>例题与参考答案</summary>
-            <p>例题：TP=30，FP=10，FN=20，TN=40，计算 Precision 和 Recall。</p>
-            <p>参考答案：Precision=30/(30+10)=0.75；Recall=30/(30+20)=0.60。</p>
-          </details>
         </article>
 
-        <article class="chapter-card">
-          <div class="chapter-head">
+        <article id="chapter-7" class="chapter-module">
+          <header class="chapter-module-head">
             <span>第 7 章</span>
             <h3>无监督学习：K-Means 与 PCA</h3>
+            <p>本章把聚类和降维放在一起：K-Means 关注样本分组，PCA 关注用更少维度保留主要变化方向。</p>
+          </header>
+          <div class="chapter-subgrid">
+            <section class="chapter-subsection">
+              <h4>背景</h4>
+              <p>很多数据没有标签，但仍然有结构。例如客户行为数据可以分群，高维图像或文本特征可以降维可视化。无监督学习的目标不是预测标签，而是发现数据内部规律。</p>
+            </section>
+            <section class="chapter-subsection">
+              <h4>知识点</h4>
+              <ul>
+                <li>K-Means：指定 K 个簇，迭代更新样本分配和聚类中心。</li>
+                <li>SSE：样本到所属中心距离平方和，可用于观察聚类紧凑程度。</li>
+                <li>PCA：寻找最大投影方差方向，常用于降维。</li>
+                <li>协方差矩阵：描述特征间共同变化关系。</li>
+                <li>第一主成分：最大特征值对应的特征向量。</li>
+              </ul>
+            </section>
+            <section class="chapter-subsection">
+              <h4>理论</h4>
+              <p>K-Means 优化目标是让簇内样本尽量接近各自中心。PCA 的第一主成分可写为 <code>max w^T S w, s.t. w^T w=1</code>，拉格朗日推导得到 <code>Sw=lambda w</code>，因此主成分方向是协方差矩阵的特征向量。</p>
+              <div class="formula-note">PCA 第一主成分 = 最大特征值对应的特征向量。</div>
+            </section>
+            <section class="chapter-subsection examples-panel">
+              <h4>5 道例题</h4>
+              <ol class="example-list">
+                <li><strong>K-Means 中 K 表示什么？</strong><p>聚类簇数量或聚类中心数量。</p></li>
+                <li><strong>K-Means 会自动推导最佳 K 吗？</strong><p>不会，通常需要人为指定或结合肘部法等方法选择。</p></li>
+                <li><strong>PCA 是否需要标签？</strong><p>不需要，是无监督降维方法。</p></li>
+                <li><strong>S=diag(9,4)，第一主成分方向是什么？</strong><p><code>[1,0]^T</code>，对应最大特征值 9。</p></li>
+                <li><strong>PCA 降到二维后分类准确率下降，可能原因？</strong><p>降维丢失了对分类有用的信息；最大方差方向不一定最有判别力。</p></li>
+              </ol>
+            </section>
           </div>
-          <p class="chapter-focus">关键知识点分析：K-Means 用距离把样本划分为 K 个簇；PCA 寻找最大投影方差方向，可用协方差矩阵特征向量理解。</p>
-          <ul>
-            <li>K-Means 的 K 需要人为设定或结合方法选择。</li>
-            <li>PCA 不使用标签，是无监督降维方法。</li>
-            <li>第一主成分对应最大特征值的特征向量。</li>
-          </ul>
-          <div class="knowledge-block">
-            <h4>K-Means 拆解</h4>
-            <p>K-Means 先选 K 个中心，再反复执行“按距离分配样本到最近中心”和“重新计算每个簇中心”两步，直到中心变化很小或达到最大迭代次数。</p>
-            <h4>PCA 拆解</h4>
-            <p>PCA 的目标是找一个单位方向，使样本投影到该方向后的方差最大。推导时常写成 max w^T S w，约束 w^T w=1，最终得到 Sw=λw。</p>
-            <div class="mistake-note">常见误区：PCA 保留的是最大方差方向，不一定是最适合分类的方向。</div>
-          </div>
-          <details class="chapter-example">
-            <summary>例题与参考答案</summary>
-            <p>例题：协方差矩阵 S = diag(5, 2)，第一主成分方向是哪一个？</p>
-            <p>参考答案：第一主成分方向为 [1,0]^T，因为该方向对应最大特征值 5。</p>
-          </details>
         </article>
 
-        <article class="chapter-card">
-          <div class="chapter-head">
+        <article id="chapter-8" class="chapter-module">
+          <header class="chapter-module-head">
             <span>第 8 章</span>
             <h3>神经网络与 CNN 基础</h3>
+            <p>本章关注神经网络的基本组成，以及 CNN 中卷积、激活和池化的手算逻辑。</p>
+          </header>
+          <div class="chapter-subgrid">
+            <section class="chapter-subsection">
+              <h4>背景</h4>
+              <p>神经网络通过多层非线性变换学习复杂模式。CNN 特别适合图像等具有局部空间结构的数据，因为卷积核可以在不同位置共享权重，提取边缘、纹理和局部形状等特征。</p>
+            </section>
+            <section class="chapter-subsection">
+              <h4>知识点</h4>
+              <ul>
+                <li>神经元：线性加权求和后接激活函数。</li>
+                <li>ReLU：<code>max(0,x)</code>，把负值截为 0。</li>
+                <li>卷积核：局部窗口内做元素乘加。</li>
+                <li>Padding 与步长：共同影响输出尺寸。</li>
+                <li>最大池化：每个窗口取最大值，实现降维。</li>
+              </ul>
+            </section>
+            <section class="chapter-subsection">
+              <h4>理论</h4>
+              <p>卷积输出边长为 <code>(N-F+2P)/S+1</code>，其中 N 为输入边长，F 为卷积核大小，P 为填充，S 为步长。多通道卷积会分别在每个通道乘加，再跨通道求和并加偏置。</p>
+              <div class="mistake-note">常见误区：把最大池化当成求平均。最大池化取最大值，平均池化才取平均值。</div>
+            </section>
+            <section class="chapter-subsection examples-panel">
+              <h4>5 道例题</h4>
+              <ol class="example-list">
+                <li><strong>输入 5×5，卷积核 3×3，S=1，P=0，输出尺寸？</strong><p><code>(5-3+0)/1+1=3</code>，输出 3×3。</p></li>
+                <li><strong>ReLU(-2) 等于多少？</strong><p>0。</p></li>
+                <li><strong>2×2 窗口 [[1,3],[2,0]] 最大池化结果？</strong><p>3。</p></li>
+                <li><strong>卷积核数量通常决定输出什么？</strong><p>输出通道数。</p></li>
+                <li><strong>CNN 为什么适合图像？</strong><p>因为它利用局部连接和权值共享，能提取空间局部特征并减少参数量。</p></li>
+              </ol>
+            </section>
           </div>
-          <p class="chapter-focus">关键知识点分析：理解神经网络的层结构、激活函数、卷积核、步长、Padding、池化；能手算小矩阵卷积和池化输出。</p>
-          <ul>
-            <li>ReLU(x)=max(0,x)，常用于引入非线性。</li>
-            <li>卷积输出尺寸与输入、卷积核、步长、Padding 有关。</li>
-            <li>最大池化取窗口最大值，常用于降维和增强局部鲁棒性。</li>
-          </ul>
-          <div class="knowledge-block">
-            <h4>卷积理解</h4>
-            <p>卷积核像一个小窗口，在图像或特征图上滑动。每个位置做对应元素乘加，再加偏置，经过激活函数得到输出特征值。多个卷积核会产生多个输出通道。</p>
-            <h4>尺寸公式</h4>
-            <p>若输入边长为 N，卷积核大小为 F，Padding 为 P，步长为 S，则输出边长为 (N-F+2P)/S+1。计算题要注意结果必须是整数。</p>
-            <div class="formula-note">最大池化只取窗口最大值；平均池化才取平均值。</div>
-          </div>
-          <details class="chapter-example">
-            <summary>例题与参考答案</summary>
-            <p>例题：输入 5×5，卷积核 3×3，步长 1，Padding 为 0，输出空间尺寸是多少？</p>
-            <p>参考答案：输出边长为 (5-3+2×0)/1+1=3，因此输出尺寸为 3×3。</p>
-          </details>
         </article>
       </div>
     </section>

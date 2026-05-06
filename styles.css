@@ -424,12 +424,50 @@ main {
   gap: 16px;
 }
 
+.chapter-toc {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.chapter-toc a {
+  display: grid;
+  gap: 4px;
+  min-height: 78px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 10px 24px rgba(30, 45, 70, 0.05);
+}
+
+.chapter-toc a:hover,
+.chapter-toc a:focus-visible {
+  border-color: rgba(27, 111, 143, 0.42);
+  background: #eef7f8;
+}
+
+.chapter-toc span {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.chapter-directory {
+  display: grid;
+  gap: 20px;
+}
+
 .lab-card,
 .question-card,
 .rubric-grid > div,
 .submission-flow > div,
 .reference-card,
-.chapter-card {
+.chapter-card,
+.chapter-module,
+.chapter-subsection {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
@@ -449,6 +487,102 @@ main {
   padding: 20px;
   background:
     linear-gradient(180deg, #ffffff, #f9fbfd);
+}
+
+.chapter-module {
+  scroll-margin-top: 86px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #ffffff, #f7fafc);
+}
+
+.chapter-module-head {
+  padding: 22px;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(16, 47, 60, 0.96), rgba(27, 111, 143, 0.90));
+  color: #ffffff;
+}
+
+.chapter-module-head span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 9px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.chapter-module-head h3 {
+  margin: 12px 0 8px;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.chapter-module-head p {
+  max-width: 900px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.chapter-subgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 16px;
+}
+
+.chapter-subsection {
+  padding: 16px;
+  box-shadow: none;
+}
+
+.chapter-subsection h4 {
+  margin: 0 0 10px;
+  color: var(--primary-dark);
+  font-size: 18px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.chapter-subsection p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.chapter-subsection ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.examples-panel {
+  grid-column: 1 / -1;
+}
+
+.example-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.example-list li {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.example-list strong {
+  display: block;
+  color: var(--ink);
+}
+
+.example-list p {
+  margin-top: 6px;
 }
 
 .chapter-head {
@@ -827,7 +961,10 @@ main {
   .rubric-grid,
   .feature-band,
   .submission-flow,
-  .chapter-grid {
+  .chapter-grid,
+  .chapter-toc,
+  .chapter-subgrid,
+  .example-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -870,7 +1007,10 @@ main {
   .feature-band,
   .submission-flow,
   .reference-card,
-  .chapter-grid {
+  .chapter-grid,
+  .chapter-toc,
+  .chapter-subgrid,
+  .example-list {
     grid-template-columns: 1fr;
   }
 
