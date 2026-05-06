@@ -17,6 +17,7 @@
       </span>
     </a>
     <nav class="nav" aria-label="主导航">
+      <a href="#chapters">章节知识点</a>
       <a href="#labs">上机题目</a>
       <a href="#question-bank">考试题库</a>
       <a href="#rubric">提交规范</a>
@@ -33,6 +34,7 @@
           本页面用于发布课程上机编程题与期末复习题库。上机题要求提交可运行代码、实验记录和简短分析；题库覆盖期末考试同类知识点，但全部更换了情景、数据和问法。
         </p>
         <div class="quick-actions" aria-label="快捷入口">
+          <a class="primary-action" href="#chapters">章节知识点</a>
           <a class="primary-action" href="#labs">查看上机题</a>
           <a class="secondary-action" href="#question-bank">进入题库</a>
           <a class="secondary-action" href="#rubric">查看提交方式</a>
@@ -78,8 +80,8 @@
         <span>道复习题</span>
       </div>
       <div>
-        <strong>7</strong>
-        <span>个核心模块</span>
+        <strong>8</strong>
+        <span>个章节分析</span>
       </div>
       <div>
         <strong>0</strong>
@@ -103,6 +105,160 @@
         <h2>期末复习</h2>
         <p>题库与考试知识点同源但不复刻原题，适合检验概念、计算和推导掌握程度。</p>
       </article>
+    </section>
+
+    <section id="chapters" class="section-block" aria-labelledby="chapters-title">
+      <div class="section-heading compact">
+        <p class="eyebrow">Chapter Guide</p>
+        <h2 id="chapters-title">机器学习章节关键知识点分析与例题</h2>
+        <p>本栏目按照课程主要章节整理，帮助学生把“概念、公式、算法流程、计算题”串起来。每个章节都给出复习重点、易错点和一题配套例题。</p>
+      </div>
+
+      <div class="chapter-grid">
+        <article class="chapter-card">
+          <div class="chapter-head">
+            <span>第 1 章</span>
+            <h3>机器学习概述与任务类型</h3>
+          </div>
+          <p class="chapter-focus">关键知识点分析：区分监督学习、无监督学习和强化学习；理解分类与回归的区别；能从业务描述中判断任务类型。</p>
+          <ul>
+            <li>有标签且预测离散类别：分类。</li>
+            <li>有标签且预测连续数值：回归。</li>
+            <li>无标签并寻找群体结构：聚类或降维。</li>
+          </ul>
+          <details class="chapter-example">
+            <summary>例题与参考答案</summary>
+            <p>例题：根据学生历史作业、出勤和测验成绩，预测其是否存在挂科风险，属于什么任务？</p>
+            <p>参考答案：监督学习中的分类任务，因为训练数据有历史标签，输出是“有风险/无风险”的离散类别。</p>
+          </details>
+        </article>
+
+        <article class="chapter-card">
+          <div class="chapter-head">
+            <span>第 2 章</span>
+            <h3>数据预处理与数据划分</h3>
+          </div>
+          <p class="chapter-focus">关键知识点分析：掌握缺失值处理、标准化/归一化、训练集/验证集/测试集划分；理解数据泄漏为什么会导致虚高结果。</p>
+          <ul>
+            <li>距离类算法常需要标准化。</li>
+            <li>验证集用于调参，测试集用于最终评估。</li>
+            <li>不能用测试集统计量参与训练预处理。</li>
+          </ul>
+          <details class="chapter-example">
+            <summary>例题与参考答案</summary>
+            <p>例题：KNN 中同时使用“年龄”和“年收入”两个特征，为什么通常要做标准化？</p>
+            <p>参考答案：年收入数值范围通常远大于年龄，若不标准化，距离计算会被收入主导，导致年龄信息被弱化。</p>
+          </details>
+        </article>
+
+        <article class="chapter-card">
+          <div class="chapter-head">
+            <span>第 3 章</span>
+            <h3>KNN 与距离度量</h3>
+          </div>
+          <p class="chapter-focus">关键知识点分析：理解 KNN 的“懒惰学习”特点、欧氏距离计算、多数表决机制，以及 K 值对噪声和边界平滑程度的影响。</p>
+          <ul>
+            <li>K 小：边界更灵活，但更容易受噪声影响。</li>
+            <li>K 大：结果更平滑，但可能欠拟合。</li>
+            <li>预测阶段需要与训练样本计算距离，数据大时较慢。</li>
+          </ul>
+          <details class="chapter-example">
+            <summary>例题与参考答案</summary>
+            <p>例题：已知 A(1,1)、B(2,1) 为类别 0，C(4,4)、D(5,4) 为类别 1。新样本 X(2,2)，当 K=3 时类别是什么？</p>
+            <p>参考答案：距离分别为 1、1、√8、√13，最近三点为 A、B、C，其中类别 0 两票，因此预测为类别 0。</p>
+          </details>
+        </article>
+
+        <article class="chapter-card">
+          <div class="chapter-head">
+            <span>第 4 章</span>
+            <h3>线性模型与逻辑回归</h3>
+          </div>
+          <p class="chapter-focus">关键知识点分析：线性回归预测连续值，逻辑回归用于分类概率建模；理解 Sigmoid 输出范围和阈值分类思想。</p>
+          <ul>
+            <li>线性组合：z = w^T x + b。</li>
+            <li>Sigmoid 将 z 映射到 [0, 1]。</li>
+            <li>常用 0.5 作为二分类阈值，也可按业务调整。</li>
+          </ul>
+          <details class="chapter-example">
+            <summary>例题与参考答案</summary>
+            <p>例题：某逻辑回归模型输出概率 0.82，阈值为 0.5，应判为正类还是负类？</p>
+            <p>参考答案：判为正类，因为 0.82 大于阈值 0.5。</p>
+          </details>
+        </article>
+
+        <article class="chapter-card">
+          <div class="chapter-head">
+            <span>第 5 章</span>
+            <h3>决策树、过拟合与集成学习</h3>
+          </div>
+          <p class="chapter-focus">关键知识点分析：决策树通过降低不纯度进行划分；过深的树容易记住训练噪声；随机森林通过多树投票提升稳定性。</p>
+          <ul>
+            <li>节点划分常看信息增益、基尼指数等指标。</li>
+            <li>训练集高分、测试集低分常提示过拟合。</li>
+            <li>随机森林属于集成学习，能降低单棵树波动。</li>
+          </ul>
+          <details class="chapter-example">
+            <summary>例题与参考答案</summary>
+            <p>例题：一棵树训练准确率 100%，测试准确率 62%，继续增加树深是否合适？</p>
+            <p>参考答案：不合适。该现象更可能是过拟合，应考虑剪枝、限制最大深度、增加数据或使用随机森林。</p>
+          </details>
+        </article>
+
+        <article class="chapter-card">
+          <div class="chapter-head">
+            <span>第 6 章</span>
+            <h3>模型评估指标</h3>
+          </div>
+          <p class="chapter-focus">关键知识点分析：掌握混淆矩阵 TP、FP、FN、TN；能计算 Accuracy、Precision、Recall、F1；理解类别不平衡时 Accuracy 的局限。</p>
+          <ul>
+            <li>Precision = TP / (TP + FP)。</li>
+            <li>Recall = TP / (TP + FN)。</li>
+            <li>F1 是 Precision 和 Recall 的调和平均。</li>
+          </ul>
+          <details class="chapter-example">
+            <summary>例题与参考答案</summary>
+            <p>例题：TP=30，FP=10，FN=20，TN=40，计算 Precision 和 Recall。</p>
+            <p>参考答案：Precision=30/(30+10)=0.75；Recall=30/(30+20)=0.60。</p>
+          </details>
+        </article>
+
+        <article class="chapter-card">
+          <div class="chapter-head">
+            <span>第 7 章</span>
+            <h3>无监督学习：K-Means 与 PCA</h3>
+          </div>
+          <p class="chapter-focus">关键知识点分析：K-Means 用距离把样本划分为 K 个簇；PCA 寻找最大投影方差方向，可用协方差矩阵特征向量理解。</p>
+          <ul>
+            <li>K-Means 的 K 需要人为设定或结合方法选择。</li>
+            <li>PCA 不使用标签，是无监督降维方法。</li>
+            <li>第一主成分对应最大特征值的特征向量。</li>
+          </ul>
+          <details class="chapter-example">
+            <summary>例题与参考答案</summary>
+            <p>例题：协方差矩阵 S = diag(5, 2)，第一主成分方向是哪一个？</p>
+            <p>参考答案：第一主成分方向为 [1,0]^T，因为该方向对应最大特征值 5。</p>
+          </details>
+        </article>
+
+        <article class="chapter-card">
+          <div class="chapter-head">
+            <span>第 8 章</span>
+            <h3>神经网络与 CNN 基础</h3>
+          </div>
+          <p class="chapter-focus">关键知识点分析：理解神经网络的层结构、激活函数、卷积核、步长、Padding、池化；能手算小矩阵卷积和池化输出。</p>
+          <ul>
+            <li>ReLU(x)=max(0,x)，常用于引入非线性。</li>
+            <li>卷积输出尺寸与输入、卷积核、步长、Padding 有关。</li>
+            <li>最大池化取窗口最大值，常用于降维和增强局部鲁棒性。</li>
+          </ul>
+          <details class="chapter-example">
+            <summary>例题与参考答案</summary>
+            <p>例题：输入 5×5，卷积核 3×3，步长 1，Padding 为 0，输出空间尺寸是多少？</p>
+            <p>参考答案：输出边长为 (5-3+2×0)/1+1=3，因此输出尺寸为 3×3。</p>
+          </details>
+        </article>
+      </div>
     </section>
 
     <section id="labs" class="section-block" aria-labelledby="labs-title">

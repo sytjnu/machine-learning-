@@ -418,11 +418,18 @@ main {
   gap: 16px;
 }
 
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
 .lab-card,
 .question-card,
 .rubric-grid > div,
 .submission-flow > div,
-.reference-card {
+.reference-card,
+.chapter-card {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
@@ -433,6 +440,46 @@ main {
   display: flex;
   flex-direction: column;
   padding: 18px;
+}
+
+.chapter-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 390px;
+  padding: 18px;
+  background:
+    linear-gradient(180deg, #ffffff, #f9fbfd);
+}
+
+.chapter-head {
+  display: grid;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.chapter-head span {
+  width: max-content;
+  max-width: 100%;
+  padding: 4px 9px;
+  border-radius: 8px;
+  background: #e8f4f6;
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.chapter-head h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1.28;
+  letter-spacing: 0;
+}
+
+.chapter-focus {
+  margin: 14px 0 0;
+  color: var(--muted);
 }
 
 .lab-meta {
@@ -456,16 +503,39 @@ main {
 }
 
 .lab-card p,
-.question-card p {
+.question-card p,
+.chapter-card p {
   margin: 0;
   color: var(--muted);
 }
 
 .lab-card ul,
-.rubric-grid ul {
+.rubric-grid ul,
+.chapter-card ul {
   margin: 14px 0;
   padding-left: 20px;
   color: var(--text);
+}
+
+.chapter-example {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.chapter-example summary {
+  width: max-content;
+  max-width: 100%;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: #f7efe4;
+  color: #7d5414;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.chapter-example p {
+  margin-top: 10px;
 }
 
 .deliverable {
@@ -721,7 +791,8 @@ main {
   .lab-list,
   .rubric-grid,
   .feature-band,
-  .submission-flow {
+  .submission-flow,
+  .chapter-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -763,7 +834,8 @@ main {
   .bank-tools,
   .feature-band,
   .submission-flow,
-  .reference-card {
+  .reference-card,
+  .chapter-grid {
     grid-template-columns: 1fr;
   }
 
