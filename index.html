@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>机器学习基础课程网站</title>
+  <meta name="description" content="机器学习基础课程网站：上机编程题、考试题库、自测筛选与课程安排。">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="返回顶部">
+      <span class="brand-mark" aria-hidden="true">ML</span>
+      <span>
+        <strong>机器学习基础</strong>
+        <small>课程工作台</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#labs">上机题目</a>
+      <a href="#question-bank">考试题库</a>
+      <a href="#rubric">提交规范</a>
+      <a href="#references">参考书目</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="course-dashboard" aria-labelledby="course-title">
+      <div class="dashboard-copy">
+        <p class="eyebrow">2025-2026 第二学期</p>
+        <h1 id="course-title">《机器学习基础》上机与复习资源</h1>
+        <p class="intro">
+          本页面用于发布课程上机编程题与期末复习题库。上机题要求提交可运行代码、实验记录和简短分析；题库覆盖期末考试同类知识点，但全部更换了情景、数据和问法。
+        </p>
+        <div class="quick-actions" aria-label="快捷入口">
+          <a class="primary-action" href="#labs">查看上机题</a>
+          <a class="secondary-action" href="#question-bank">进入题库</a>
+          <a class="secondary-action" href="#rubric">查看提交方式</a>
+        </div>
+      </div>
+
+      <div class="visual-panel" aria-label="课程知识结构示意">
+        <div class="panel-topline">
+          <span>Course Analytics</span>
+          <strong>ML-101</strong>
+        </div>
+        <div class="pipeline">
+          <span>数据</span>
+          <span>预处理</span>
+          <span>模型</span>
+          <span>评估</span>
+        </div>
+        <div class="mini-grid" aria-hidden="true">
+          <span style="--h: 78%"></span>
+          <span style="--h: 42%"></span>
+          <span style="--h: 64%"></span>
+          <span style="--h: 92%"></span>
+          <span style="--h: 56%"></span>
+          <span style="--h: 70%"></span>
+        </div>
+        <div class="matrix-visual" aria-hidden="true">
+          <span class="hot">TP</span><span>FP</span>
+          <span>FN</span><span class="cool">TN</span>
+        </div>
+        <div class="panel-caption">
+          <span>从数据处理、模型训练到评估解释，按真实机器学习流程完成课程训练。</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary-strip" aria-label="课程任务概览">
+      <div>
+        <strong>6</strong>
+        <span>个编程上机题</span>
+      </div>
+      <div>
+        <strong>37</strong>
+        <span>道复习题</span>
+      </div>
+      <div>
+        <strong>7</strong>
+        <span>个核心模块</span>
+      </div>
+      <div>
+        <strong>0</strong>
+        <span>道期末原题复用</span>
+      </div>
+    </section>
+
+    <section class="feature-band" aria-label="课程组织方式">
+      <article>
+        <span class="feature-index">01</span>
+        <h2>课堂知识点</h2>
+        <p>围绕监督学习、无监督学习、评估指标、过拟合、PCA 与 CNN 基础展开。</p>
+      </article>
+      <article>
+        <span class="feature-index">02</span>
+        <h2>编程训练</h2>
+        <p>每次上机要求学生写出可运行代码，并用图表解释实验结果。</p>
+      </article>
+      <article>
+        <span class="feature-index">03</span>
+        <h2>期末复习</h2>
+        <p>题库与考试知识点同源但不复刻原题，适合检验概念、计算和推导掌握程度。</p>
+      </article>
+    </section>
+
+    <section id="labs" class="section-block" aria-labelledby="labs-title">
+      <div class="section-heading">
+        <p class="eyebrow">Programming Labs</p>
+        <h2 id="labs-title">上机编程题目</h2>
+        <p>每个题目都需要学生自己完成核心算法、实验运行和结果解释。允许使用 NumPy、Pandas、scikit-learn 或 PyTorch，但不得提交只改参数的截图式作业。</p>
+      </div>
+
+      <div class="lab-list">
+        <article class="lab-card">
+          <div class="lab-meta">
+            <span>Lab 1</span>
+            <span>监督学习流程</span>
+          </div>
+          <h3>鸢尾花分类完整流水线</h3>
+          <p>使用 Iris 数据集完成数据划分、标准化、模型训练与评估，对比 KNN 与逻辑回归。</p>
+          <ul>
+            <li>手动设置训练集、验证集、测试集比例，并固定随机种子。</li>
+            <li>输出 Accuracy、Precision、Recall、F1-score 和混淆矩阵。</li>
+            <li>解释 K 值或正则化强度变化对结果的影响。</li>
+          </ul>
+          <p class="deliverable">提交：<code>lab1_pipeline.py</code>、实验报告 PDF、运行日志。</p>
+        </article>
+
+        <article class="lab-card">
+          <div class="lab-meta">
+            <span>Lab 2</span>
+            <span>KNN</span>
+          </div>
+          <h3>从零实现 KNN 分类器</h3>
+          <p>不调用 scikit-learn 的 KNN，使用 NumPy 实现欧氏距离、近邻排序、多数表决和批量预测。</p>
+          <ul>
+            <li>支持参数 <code>k</code>，并处理平票情况。</li>
+            <li>在二维合成数据上画出不同 K 值的决策边界。</li>
+            <li>分析数据量增大时预测速度的变化。</li>
+          </ul>
+          <p class="deliverable">提交：<code>knn_from_scratch.py</code>、决策边界图片、复杂度分析。</p>
+        </article>
+
+        <article class="lab-card">
+          <div class="lab-meta">
+            <span>Lab 3</span>
+            <span>聚类</span>
+          </div>
+          <h3>K-Means 用户行为聚类</h3>
+          <p>基于自构造或公开的用户行为特征进行聚类，比较不同 K 值下的聚类效果。</p>
+          <ul>
+            <li>完成特征标准化，说明为什么必须处理量纲。</li>
+            <li>绘制 SSE 肘部图，给出 K 值选择理由。</li>
+            <li>对每个簇进行简短画像描述。</li>
+          </ul>
+          <p class="deliverable">提交：<code>kmeans_behavior.ipynb</code>、聚类图、簇画像表。</p>
+        </article>
+
+        <article class="lab-card">
+          <div class="lab-meta">
+            <span>Lab 4</span>
+            <span>PCA</span>
+          </div>
+          <h3>PCA 降维与可视化</h3>
+          <p>对手写数字或 Wine 数据集做标准化、协方差矩阵计算、特征值分解和二维可视化。</p>
+          <ul>
+            <li>至少手动实现协方差矩阵与特征值排序，不只调用 <code>PCA.fit_transform</code>。</li>
+            <li>画出累计解释方差曲线，选择保留维度。</li>
+            <li>比较降维前后分类器性能变化。</li>
+          </ul>
+          <p class="deliverable">提交：<code>pca_reduce.py</code>、二维散点图、解释方差分析。</p>
+        </article>
+
+        <article class="lab-card">
+          <div class="lab-meta">
+            <span>Lab 5</span>
+            <span>过拟合</span>
+          </div>
+          <h3>决策树与随机森林的泛化比较</h3>
+          <p>在一个二分类数据集上比较单棵决策树与随机森林，观察树深、叶节点数和集成数量对泛化能力的影响。</p>
+          <ul>
+            <li>绘制训练集与测试集分数随最大深度变化的曲线。</li>
+            <li>指出过拟合出现的位置，并提出至少两种缓解办法。</li>
+            <li>解释随机森林为何通常更稳定。</li>
+          </ul>
+          <p class="deliverable">提交：<code>tree_forest_compare.ipynb</code>、曲线图、结论说明。</p>
+        </article>
+
+        <article class="lab-card">
+          <div class="lab-meta">
+            <span>Lab 6</span>
+            <span>CNN</span>
+          </div>
+          <h3>手动验证卷积与池化</h3>
+          <p>先用 NumPy 手写单通道卷积和最大池化，再用 PyTorch 的 <code>Conv2d</code> 和 <code>MaxPool2d</code> 验证结果。</p>
+          <ul>
+            <li>实现步长、Padding、偏置和 ReLU。</li>
+            <li>对至少两个输入矩阵输出完整中间结果。</li>
+            <li>解释输出尺寸公式中各参数的含义。</li>
+          </ul>
+          <p class="deliverable">提交：<code>cnn_forward_check.py</code>、中间矩阵截图或文本、对照说明。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="question-bank" class="section-block" aria-labelledby="bank-title">
+      <div class="section-heading compact">
+        <p class="eyebrow">Exam Bank</p>
+        <h2 id="bank-title">期末复习题库</h2>
+        <p>题库与期末试卷保持知识点一致，但更换应用背景、数值、矩阵、选项和表达方式；适合作为自测与课堂练习。</p>
+      </div>
+
+      <div class="bank-tools" aria-label="题库筛选工具">
+        <label class="search-box">
+          <span>搜索</span>
+          <input id="questionSearch" type="search" placeholder="输入 KNN、PCA、Precision 等关键词">
+        </label>
+        <label>
+          <span>题型</span>
+          <select id="typeFilter">
+            <option value="all">全部题型</option>
+          </select>
+        </label>
+        <label>
+          <span>模块</span>
+          <select id="moduleFilter">
+            <option value="all">全部模块</option>
+          </select>
+        </label>
+        <button id="randomSet" type="button">生成 8 题自测</button>
+        <button id="resetBank" type="button" class="ghost-button">重置</button>
+      </div>
+
+      <div id="questionStats" class="question-stats" aria-live="polite"></div>
+      <div id="questionList" class="question-list"></div>
+    </section>
+
+    <section id="rubric" class="section-block split-section" aria-labelledby="rubric-title">
+      <div class="section-heading">
+        <p class="eyebrow">Submission</p>
+        <h2 id="rubric-title">上机提交与评分规范</h2>
+        <p>请按统一命名与汇总流程提交，便于学委收齐、教师检查和成绩登记。</p>
+      </div>
+      <div class="rubric-content">
+        <div class="submission-callout">
+          <strong>统一提交命名</strong>
+          <p>学生完成上机任务后，将全部代码、报告、结果图和必要运行说明压缩为一个文件，命名为：</p>
+          <code>姓名+学号.zip</code>
+          <p>例如：<code>张三2025123456.zip</code>。请提交给学委，由学委按班级统一打包后发送给任课老师。</p>
+        </div>
+
+        <div class="submission-flow" aria-label="作业提交流程">
+          <div>
+            <span>1</span>
+            <h3>学生整理</h3>
+            <p>检查代码可运行，补齐实验报告、图表和依赖说明。</p>
+          </div>
+          <div>
+            <span>2</span>
+            <h3>个人压缩</h3>
+            <p>压缩包统一命名为 <code>姓名+学号.zip</code>，避免重名或漏交。</p>
+          </div>
+          <div>
+            <span>3</span>
+            <h3>交给学委</h3>
+            <p>学委收齐全班压缩包，核对名单与文件命名。</p>
+          </div>
+          <div>
+            <span>4</span>
+            <h3>汇总发送</h3>
+            <p>学委将全班作业再次打包，统一发送给任课老师。</p>
+          </div>
+        </div>
+
+        <div class="rubric-grid">
+          <div>
+            <h3>代码要求</h3>
+            <ul>
+              <li>代码必须可以一键运行，入口文件命名清晰。</li>
+              <li>随机实验需固定随机种子，并说明依赖版本。</li>
+              <li>核心算法实现部分需要有简短注释。</li>
+            </ul>
+          </div>
+          <div>
+            <h3>报告要求</h3>
+            <ul>
+              <li>包含任务目标、方法、关键结果和结论。</li>
+              <li>图表必须有标题、坐标轴含义和简短解释。</li>
+              <li>不得只粘贴代码或只提交运行截图。</li>
+            </ul>
+          </div>
+          <div>
+            <h3>评分比例</h3>
+            <ul>
+              <li>程序正确性 45%，实验完整性 25%。</li>
+              <li>结果分析 20%，代码规范 10%。</li>
+              <li>迟交、无法运行、抄袭按课程规定扣分。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="references" class="section-block split-section" aria-labelledby="references-title">
+      <div class="section-heading">
+        <p class="eyebrow">References</p>
+        <h2 id="references-title">参考书目</h2>
+        <p>建议结合课堂讲义和上机任务阅读，重点关注基本概念、模型评估、降维与神经网络基础。</p>
+      </div>
+      <div class="reference-card">
+        <div class="book-cover" aria-hidden="true">
+          <span>ML</span>
+          <strong>机器学习</strong>
+        </div>
+        <div>
+          <p class="book-label">主参考书</p>
+          <h3>《机器学习》</h3>
+          <p>作者：周志华</p>
+          <p>阅读建议：绪论、模型评估与选择、线性模型、决策树、神经网络、聚类、降维与度量学习等章节可作为本课程复习重点。</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>机器学习基础课程资料</span>
+    <span>题库用于复习训练，不作为期末原题公开。</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
