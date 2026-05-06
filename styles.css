@@ -63,7 +63,7 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  min-width: 210px;
+  min-width: 300px;
 }
 
 .brand-mark {
@@ -86,6 +86,10 @@ code {
 .brand small {
   color: var(--muted);
   font-size: 12px;
+}
+
+.brand strong {
+  line-height: 1.25;
 }
 
 .nav {
@@ -119,6 +123,46 @@ main {
   gap: 34px;
   align-items: center;
   padding: 54px 0 28px;
+}
+
+.course-identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin: 0 0 18px;
+}
+
+.identity-cn,
+.identity-en {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.identity-cn {
+  background: var(--primary-dark);
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.identity-en {
+  border: 1px solid var(--line);
+  background: #ffffff;
+  color: var(--primary-dark);
+  font-size: 15px;
+}
+
+.identity-school {
+  flex-basis: 100%;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.45;
 }
 
 .dashboard-copy h1 {
@@ -1005,6 +1049,10 @@ main {
     position: static;
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .brand {
+    min-width: 0;
   }
 
   .nav {
